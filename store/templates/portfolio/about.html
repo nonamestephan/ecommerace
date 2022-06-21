@@ -1,0 +1,114 @@
+{% extends 'store/layouts/main.html' %}
+{% load static %}
+{% block content %}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+        }
+
+        html {
+            box-sizing: border-box;
+        }
+
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+
+        .column {
+            float: left;
+            width: 33.3%;
+            margin-bottom: 16px;
+            padding: 0 8px;
+        }
+
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            margin: 8px;
+        }
+
+        .about-section {
+            padding: 50px;
+            text-align: center;
+            color: black;
+        }
+
+        .container {
+            padding: 0 16px;
+        }
+
+        .container::after, .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .title {
+            color: grey;
+        }
+
+        @media screen and (max-width: 650px) {
+            .column {
+                width: 100%;
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="about-section">
+    <h1>About Us Page</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tristique turpis pretium nunc hendrerit, et blandit
+        nisi commodo. Cras finibus convallis semper. Curabitur dapibus, mi a posuere fermentum, quam quam vulputate ex,
+        a tincidunt turpis purus nec enim. Etiam nisi felis, maximus non ex ac, convallis auctor ipsum. </p>
+</div>
+
+<h2 style="text-align:center">Our Team</h2>
+<div class="row">
+    <div class="column">
+        <div class="card">
+            <img src="{% static 'images/pexels-dillon-kydd-5794559.jpg' %}" style="width:100%">
+            <div class="container">
+                <h2>Jane Doe</h2>
+                <p class="title">CEO & Founder</p>
+                <p>Nam convallis ligula eget feugiat auctor. Integer rutrum nisi leo, ac maximus ipsum rhoncus ac.
+                    Aliquam tincidunt sagittis ex, in molestie augue consequat sed.</p>
+                <p>janedoe@example.com</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="card">
+            <img src="{% static 'images/pexels-labskiii-11735092.jpg' %}" style="width:100%">
+            <div class="container">
+                <h2>Lize Ross</h2>
+                <p class="title">Art Director</p>
+                <p>Curabitur dapibus, mi a posuere fermentum, quam quam vulputate ex, a tincidunt turpis purus nec enim.
+                    Etiam nisi felis, maximus non ex ac, convallis auctor.</p>
+                <p>lizeross@example.com</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="card">
+            <img src="{% static 'images/pexels-steshka-willems-4536190.jpg' %}" style="width:100%">
+            <div class="container">
+                <h2>John Doe</h2>
+                <p class="title">Designer</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tristique turpis pretium nunc hendrerit,
+                    et blandit nisi commodo. Cras finibus convallis semper.</p>
+                <p>johndoe@example.com</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,128 @@
+{% extends 'store/layouts/main.html' %}
+{% load static %}
+{% block content %}
+
+    {% include 'inc/slider.html' %}
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .row {
+            display: -ms-flexbox; /* IE10 */
+            display: flex;
+            -ms-flex-wrap: wrap; /* IE10 */
+            flex-wrap: wrap;
+            padding: 0 4px;
+        }
+
+        /* Create four equal columns that sits next to each other */
+        .column {
+            -ms-flex: 25%; /* IE10 */
+            flex: 25%;
+            max-width: 25%;
+            padding: 0 4px;
+        }
+
+        .column img {
+            margin-top: 8px;
+            vertical-align: middle;
+            width: 100%;
+        }
+
+        /* Responsive layout - makes a two column-layout instead of four columns */
+        @media screen and (max-width: 800px) {
+            .column {
+                -ms-flex: 50%;
+                flex: 50%;
+                max-width: 50%;
+            }
+        }
+
+        /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+            .column {
+                -ms-flex: 100%;
+                flex: 100%;
+                max-width: 100%;
+            }
+        }
+
+        /* Responsive layout - makes a two column-layout instead of four columns */
+        @media screen and (max-width: 800px) {
+            .column {
+                flex: 50%;
+                max-width: 50%;
+            }
+        }
+
+        /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+            .column {
+                flex: 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="row">
+    <div class="column">
+        <img src="{% static 'images/pexels-pok-rie-305086.jpg' %}" style="width:100%">
+        <img src="{% static 'images/pexels-filippo-dal-re-12199830.jpg' %}" style="width:100%">
+        <img src="{% static 'images/pexels-anna-rye-12360181.jpg' %}" style="width:100%">
+        <img src="{% static 'images/pexels-eberhard-grossgasteiger-12365569.jpg' %}" style="width:100%">
+        <img src="{% static 'images/pexels-gantas-vaičiulėnas-12360542.jpg' %}" style="width:100%">
+        <img src="{% static 'images/pexels-kristina-snowasp-10629773.jpg' %}" style="width:100%">
+
+    </div>
+    <div class="column">
+        <img src="{% static 'images/pexels-hoài-nam-12088372.jpg' %}" style="width:100%">
+        <img src="{% static 'images/pexels-agustina-montanaro-12094234.jpg' %}" style="width:100%">
+        <img src="{% static 'images/pexels-yaotl-ollin-12190737.jpg' %}" style="width:100%">
+        <img src="{% static 'images/pexels-jhovani-morales-12319913.jpg' %}" style="width:100%">
+        <img src="{% static 'images/pexels-kate-trush-11482693.jpg' %}" style="width:100%">
+        <img src="{% static 'images/pexels-filippo-dal-re-12199830.jpg' %}" style="width:100%">
+
+
+    </div>
+    <div class="column">
+        <img src="{% static 'images/pexels-yulia-pribytkova-11922630.jpg' %}" style="width:100%">
+        <img src="{% static 'images/pexels-uncoveredlens-7976054.jpg' %}" style="width:100%">
+        <img src="{% static 'images/pexels-dux-camp-12333727.jpg' %}" style="width:100%">
+        <img src="{% static 'images/pexels-elena-rubtsova-12395823.jpg' %}" style="width:100%">
+        <img src="{% static 'images/pexels-steh-nobre-12441544.jpg' %}" style="width:100%">
+        <img src="{% static 'images/pexels-agustina-montanaro-12094234.jpg' %}" style="width:100%">
+
+    </div>
+    <div class="column">
+        <img src="{% static 'images/pexels-hoài-nam-12079516.jpg' %}" style="width:100%">
+        <img src="{% static 'images/pexels-lina-kivaka-12310319.jpg' %}" style="width:100%">
+        <img src="{% static 'images/pexels-kate-trush-11482693.jpg' %}" style="width:100%">
+        <img src="{% static 'images/pexels-yana-moroz-12301986.jpg' %}" style="width:100%">
+        <img src="{% static 'images/pexels-uncoveredlens-8562239.jpg' %}" style="width:100%">
+        <img src="{% static 'images/pexels-labskiii-11735044.jpg' %}" style="width:100%">
+    </div>
+</div>
+<h2 class="mt-5">Portfolio</h2>
+<hr>
+<div class="row">
+    {% for project in projects %}
+    <div class="col-lg-4 col-md-6">
+
+        {% if project.url %}
+        <a href="{{ project.url }}">
+            <img src="{{ project.image.url }}" class="img-fluid mb-2">
+        </a>
+        {% else %}
+
+        <img src="{{ project.image.url }}" class="img-fluid mb-2">
+        {% endif %}
+        <h3>{{ project.title }}</h3>
+        <p>{{ project.description }}</p>
+
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}
+
